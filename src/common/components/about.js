@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import logo from '../logo.svg';
-import './App.css';
+import logo from '../../logo.svg';
+import '../css/App.css';
 
 class About extends Component {
   render() {

@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, BrowserRouter as Router } from 'react-router-dom'
-import Home from './common/home';
-import About from './common/about';
+import Home from './common/components/home';
+import About from './common/components/about';
 import './index.css';
 
 const routing = (
