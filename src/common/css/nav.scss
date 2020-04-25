@@ -1,0 +1,122 @@
+@import './colorVariables.scss';
+@import './pixelVariables.scss';
+
+.logo{
+    font-family: 'Anton';
+    cursor: default;
+}
+
+.logo-mob{
+    position: fixed;
+    width: 100%;
+    background-color: $themeColor;
+    text-align: center;
+    position: relative;
+    @extend .themeShadow;
+    
+    >span{
+        position: absolute;
+        @extend .center-align;
+        font-size: 22px;
+    }
+}
+.logo-dsk>span{
+    @extend .center-align;
+    font-size: 28px;
+}
+
+.nav-container{
+    position: fixed;
+    left: 0;
+    width: 100%;
+    transition: 0.5s;
+    background-color: $themeColor;
+    @extend .themeShadow;    
+
+    .nav-link-tab{
+        display: inline-block;
+        position: relative;
+        text-align: center;
+
+        >a{
+            @extend .center-align;
+            width: 100%;
+
+            >img{
+                vertical-align: middle;
+                display: inline-block;
+            }
+        }
+        a:hover{
+            color: $fontColor;
+        }
+    }
+}
+
+@media screen and (min-width: $transformLimit) {
+    $navHeightDsk : 60px;
+    .nav-container-pseudo{
+        padding-top: $navHeightDsk;
+
+        .nav-container{
+            top: 0;
+            height: $navHeightDsk;
+            padding: 0 5%;
+            box-sizing: border-box;
+
+            .logo{
+                display: inline-block;
+                width: 40%;
+                height: $navHeightDsk;
+                vertical-align: top;
+                text-align: center;
+                position: relative;
+            }
+
+            .nav-link-tab{
+                width: 15%;
+                height: $navHeightDsk;
+
+                >a{
+                    font-size: 18px;
+
+                    >img{
+                        display: none;;
+                    }
+                }
+                >a:hover{
+                    >span{
+                        color: $fontColor;
+                    }
+                }                
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $transformLimit) {
+    $navHeightMob : 50px;
+    
+    .logo{
+        height: $navHeightMob;
+    }
+
+    .nav-container{
+        bottom: 0;
+        height: $navHeightMob;
+
+        .nav-link-tab{
+            width: 25%;
+            height: $navHeightMob;
+
+            >a{
+                >img{
+                    width: 40%;
+                }
+                >span{
+                    display: none;
+                }
+            }
+        }
+    }
+}
