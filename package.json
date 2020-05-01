@@ -3,14 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "eslint-plugin-react-hooks": "^3.0.0",
     "firebase": "^7.14.1",
     "node-sass": "^4.13.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "2.0.x"
+    "react-scripts": "3.0.x"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint-plugin-react": "^7.19.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

@@ -3,15 +3,15 @@ import Nav from './nav';
 
 import '../css/home.scss';
 
-function About() {
+function Contact() {
   return (
     <div className="App">
       <div className="container">
-        <Nav page="a"/>
-        <h2>About Us</h2>
+        <Nav page="c"/>
+        <h2>Contact Me</h2>
       </div>
     </div>
   );
 }
 
-export default About;
+export default Contact;

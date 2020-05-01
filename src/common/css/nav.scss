@@ -27,6 +27,7 @@
 
 .nav-container{
     position: fixed;
+    z-index: 9;
     left: 0;
     width: 100%;
     transition: 0.5s;
@@ -46,9 +47,14 @@
                 vertical-align: middle;
                 display: inline-block;
             }
+            >span{
+                color: $foreFontColor;
+            }
         }
         a:hover{
-            color: $fontColor;
+            >span{
+                color: $foreFontColor;
+            }
         }
     }
 }
@@ -80,15 +86,22 @@
                 >a{
                     font-size: 18px;
 
-                    >img{
+                    >svg{
                         display: none;;
+                    }
+                    
+                    >span{
+                        color: $foreFontColor;
                     }
                 }
                 >a:hover{
                     >span{
-                        color: $fontColor;
+                        color: $foreFontColor;
                     }
                 }                
+            }
+            .nav-link-tab.selected-page-tab >a >span{
+                font-size: 20px;
             }
         }
     }
@@ -110,13 +123,25 @@
             height: $navHeightMob;
 
             >a{
-                >img{
-                    width: 40%;
+                >svg{
+                    width: 30px;
+                    height: 30px;
                 }
                 >span{
                     display: none;
                 }
             }
+        }
+        .nav-link-tab.selected-page-tab::after{
+            content: '';
+            position: absolute;
+            border-top: 10px solid transparent;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid $themeColor;
+            top: -20px;
+            left: 50%;
+            margin-left: -10px;
         }
     }
 }
