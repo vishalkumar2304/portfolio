@@ -6,8 +6,8 @@ import '../css/home.scss';
 function About() {
   return (
     <div className="App">
+    <Nav page="a"/>
       <div className="container">
-        <Nav page="a"/>
         <h2>About Us</h2>
       </div>
     </div>

@@ -24,11 +24,17 @@ body{
         .dsk-hid{
             display: none;
         }
+        .container{
+            padding: 0 5%;
+        }
     }
 
     @media screen and (max-width: $transformLimit) {
         .mob-hid{
             display: none;
+        }
+        .container{
+            padding: 0 10px;
         }
     }
 }
