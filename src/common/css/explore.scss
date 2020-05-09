@@ -1,21 +1,24 @@
 @import './pixelVariables.scss';
 
-.image-container {
-    display: inline-block;
-    max-width: 100%;
+.container{
     max-height: 100vh;
-    margin-bottom: 55px;
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 
-    img{
+    .image-container {
         display: inline-block;
-        box-sizing: border-box;
-    }
-}
+        max-width: 100%;
+        margin-bottom: 55px;
+    
+        img{
+            display: inline-block;
+            box-sizing: border-box;
+        }
+    }}
 
 @media screen and (min-width: $transformLimit) {
     .explore-image{
-        width: 20%;
+        width: 25%;
         padding: 25px;
     }
 }

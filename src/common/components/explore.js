@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Nav from './nav';
+import Utils from '../js/utils';
 import {storage} from '../../firebase/index';
 
 import '../css/explore.scss';
@@ -7,6 +8,14 @@ import '../css/explore.scss';
 function Explore() {
 
   const[flag, updateFlag] = useState(0);
+  const[lastScrollTop, updatelastScrollTop] = useState(200);
+  const[client, updateClient] = useState(null);
+
+  useEffect(()=>{
+    var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    isMobile ? updateClient("m") : updateClient("w");
+    isMobile ? updatelastScrollTop(200) : updatelastScrollTop(20);
+  },[client])
 
   let getURLS = (imgArr, startIndex, limit) => {
     imgArr = imgArr.splice(startIndex, limit);
@@ -24,7 +33,9 @@ function Explore() {
   }
 
   let loadMore = () => {
-    if(document.querySelector('#explore-container').scrollTop % 80 === 0){
+    var st = document.querySelector('.container').scrollTop;
+    if (st > lastScrollTop){
+      updatelastScrollTop(st <= 0 ? 0 : (st + 200));
       updateFlag(flag + 8);
     }
   }
@@ -43,10 +54,9 @@ function Explore() {
   return (
     <div className="App">
     <Nav page="e"/>
-      <div className="container">
+      <div className="container" onScroll={Utils.debounce(loadMore, 500)}>
         <h2>Explore</h2>
-        <div id="explore-container" className="image-container" onScroll={loadMore}></div>
-        {/* <div onClick={loadMore}>Load More images</div> */}
+        <div id="explore-container" className="image-container"></div>
       </div>
     </div>
   );
