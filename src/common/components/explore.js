@@ -18,7 +18,7 @@ function Explore() {
   },[client])
 
   let getURLS = (imgArr, startIndex, limit) => {
-    imgArr = imgArr.splice(startIndex, limit);
+    imgArr = imgArr.slice(startIndex, startIndex+limit);
     let i = startIndex;
     imgArr.forEach( item => {
       item.getDownloadURL().then( urlImg => {
@@ -26,6 +26,9 @@ function Explore() {
         imagDyn.src = urlImg;
         imagDyn.className = "explore-image image-no-" + (++i);
         imagDyn.alt = "image-number-" + (i);
+        imagDyn.addEventListener("click", () => {
+          console.log("abcd")
+        })
         // innerContent = innerContent + `<img class="explore-image image-no-${i++}" src="${urlImg}" alt="image number ${i}"/>`;
         document.querySelector('#explore-container').appendChild(imagDyn);
       });
@@ -47,7 +50,7 @@ function Explore() {
       for (let i = 0; i < result.items.length; i++){
         resArr.push(result.items[i]);
       }
-      getURLS(resArr, flag, flag+8);
+      getURLS(resArr, flag, 8);
     })
   }, [flag]);
 
